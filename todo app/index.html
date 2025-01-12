@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 My To-Do List</h1>
+            <p>Track your daily tasks effortlessly!</p>
+        </header>
+        <div class="task-input-container">
+            <input type="text" id="taskInput" placeholder="Add a new task..." />
+            <button id="addTaskButton">➕</button>
+        </div>
+        <div class="task-section">
+            <h2>📋 Pending Tasks</h2>
+            <ul id="pendingTasks" class="task-list"></ul>
+        </div>
+        <div class="task-section">
+            <h2>✅ Completed Tasks</h2>
+            <ul id="completedTasks" class="task-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

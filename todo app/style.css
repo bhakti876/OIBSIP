@@ -1,0 +1,137 @@
+/* General Reset */
+body, h1, h2, p, ul, li, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Container */
+.container {
+    background: #ffe4e4;
+    width: 400px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Header */
+header h1 {
+    color: #ff6f91;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Input Section */
+.task-input-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ffccd5;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+}
+
+#taskInput:focus {
+    border-color: #ff6f91;
+}
+
+#addTaskButton {
+    background: #ff6f91;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#addTaskButton:hover {
+    background: #ff3d68;
+}
+
+
+.task-section {
+    margin-top: 20px;
+}
+
+.task-section h2 {
+    font-size: 1.3rem;
+    color: #ff6f91;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Task Buttons */
+button.complete-btn {
+    background: #28a745;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.complete-btn:hover {
+    background: #218838;
+}
+
+button.delete-btn {
+    background: #dc3545;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.delete-btn:hover {
+    background: #c82333;
+}
