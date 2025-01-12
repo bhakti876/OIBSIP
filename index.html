@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calculator</title>
+    <style>
+        /* Styling the page */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #eef2f3;
+            margin: 0;
+        }
+
+        .calculator {
+            width: 50%;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator h1 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #4a90e2;
+            margin-bottom: 20px;
+        }
+
+        #display {
+            width: 100%;
+            height: 60px;
+            border-radius: 8px;
+            font-size: 1.5em;
+            text-align: right;
+            padding: 10px;
+            border: 2px solid #4a90e2;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .btn {
+            font-size: 1.2em;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #4a90e2;
+            color: white;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #357abd;
+        }
+
+        .btn.operation {
+            background-color: #f5a623;
+        }
+
+        .btn.operation:hover {
+            background-color: #d4891b;
+        }
+
+        .btn.clear {
+            background-color: #e94e77;
+        }
+
+        .btn.clear:hover {
+            background-color: #c33c60;
+        }
+
+        .btn.equal {
+            background-color: #4caf50;
+        }
+
+        .btn.equal:hover {
+            background-color: #3d8c41;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <input type="text" id="display" placeholder="0" onkeypress="validateInput(event)">
+        <div class="buttons">
+            <!-- Number and operator buttons -->
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            <button class="btn operation" onclick="appendToDisplay('+')">+</button>
+
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn operation" onclick="appendToDisplay('-')">-</button>
+
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn operation" onclick="appendToDisplay('*')">*</button>
+
+            <button class="btn" onclick="appendToDisplay('0')">0</button>
+            <button class="btn" onclick="appendToDisplay('.')">.</button>
+            <button class="btn clear" onclick="clearDisplay()">C</button>
+            <button class="btn operation" onclick="appendToDisplay('/')">/</button>
+
+            <button class="btn equal" style="grid-column: span 4;" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <script>
+        // Append values to the display
+        function appendToDisplay(value) {
+            const display = document.getElementById("display");
+            display.value += value;
+        }
+
+        // Clear the display
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        // Calculate and show the result
+        function calculateResult() {
+            const display = document.getElementById("display");
+            try {
+                display.value = eval(display.value); // Use eval to calculate
+            } catch (error) {
+                display.value = "Error";
+            }
+        }
+
+        // Validate input for keyboard usage
+        function validateInput(event) {
+            const allowedKeys = "0123456789+-*/.";
+            if (!allowedKeys.includes(event.key) && event.key !== "Enter") {
+                event.preventDefault();
+            }
+            if (event.key === "Enter") {
+                calculateResult();
+            }
+        }
+    </script>
+</body>
+</html>
